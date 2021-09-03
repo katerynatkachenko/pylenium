@@ -1,25 +1,30 @@
-## Challenge: Have I've been pwned
+# Challenge: Have I've been pwned
 
-###   Quick start
+##  Quick start
 
-
-#### 1. To execute the following Test Suits, please clone the repository from github:
+### To execute the following Test Suits, please clone the repository from github:
 
 `git clone git@github.com:katerynatkachenko/pylenium.git`
 
 ##### There are two options to run the tests: from docker container and without it
 
-###### To run outside the container, execute the following command from cmd of the cloned repository:
+### Outside the container [Linux Ubuntu Environment]
 
-`python3 main.py`
+1. From the root project directory, first run `sudo chmod +x ./setup.sh` to grant executable permission to `setup.sh` file
+2. Then execute `setup.sh` file by running the following command: `./setup.sh`
+3. To run the tests use the following command `python3 main.py`
 
-#### 2. To get started with the project, please execute the following command from the project root directory: 
+### Inside the container 
+
+#### 1. Execute the following command from the project root directory: 
 
 `docker run -d --privileged --rm --name selenium-debug -p 4444:4444 -v $(pwd):/app:rw -w /app -p 5900:5900 --shm-size=2g katerynatkachenko/selenium-perseus:latest`
 
-#### 3. Connect VNC viewer of your preference on `localhost:5900` and the password: `secret`
+#### 2. Connect VNC viewer of your preference on `localhost:5900` and the password: `secret` 
+
+To install VNC viewer on Linux Ubuntu use `sudo apt install remina`
    
-#### 4. Execute the test suite by running 
+#### 3. Execute the test suite by running 
 
 `docker exec selenium-debug python3 main.py`
    
