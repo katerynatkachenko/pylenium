@@ -58,7 +58,7 @@ class TestStringMethods(unittest.TestCase):
         self.assertEqual(result, 'Good news — no pwnage found!')
 
     def test_third_scenario(self):
-
+        import time
         report = dict()
 
         # Third scenario:
