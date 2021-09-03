@@ -7,15 +7,15 @@
 
 `git clone git@github.com:katerynatkachenko/pylenium.git`
 
-#### 2. To get started with the project, please execute the following command: 
+#### 2. To get started with the project, please execute the following command from the project root directory: 
 
-`docker run -d --rm --name selenium-debug -p 4444:4444 -v /home/artgoe/Projects/Selenium/pylenium:/app -w /app -p 5900:5900 --shm-size=2g $IMAGE`t  
+`docker run -d --privileged --rm --name selenium-debug -p 4444:4444 -v $(pwd):/app:rw -w /app -p 5900:5900 --shm-size=2g katerynatkachenko/selenium-perseus:latest`
 
-#### 3. Connect with VNC viewer of your preference to localhost:5109
+#### 3. Connect VNC viewer of your preference on `localhost:5900` and the password: `secret`
    
 #### 4. Execute the test suite by running 
 
-`docker exe -it selenium-debug python3 main.py`
+`docker exec selenium-debug python3 main.py`
    
 ### Test Suite Description
 

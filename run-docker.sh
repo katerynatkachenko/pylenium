@@ -1,7 +1,7 @@
 IMAGE=katerynatkachenko/selenium-perseus:latest
 
 if [ $# -eq 0 ]; then
-  docker run -d --rm --name selenium-debug -p 4444:4444 -v /home/artgoe/Projects/Selenium/pylenium:/app -w /app -p 5900:5900 --shm-size=2g $IMAGE
+  docker run -d --rm --name selenium-debug -p 4444:4444 -v $(pwd):/app:rw -w /app -p 5900:5900 --shm-size=2g $IMAGE
 fi;
 
 function docker-exec() {
