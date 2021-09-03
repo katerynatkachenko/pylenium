@@ -75,9 +75,11 @@ class TestStringMethods(unittest.TestCase):
             if pwned == '':
                 no_pwnage = self.driver.find_element(By.XPATH, "//*[@id=\"noPwnage\"]/div/div/div[1]/h2").text
 
+                print("{} : {}".format(email, no_pwnage))
                 report[email] = no_pwnage
                 continue
 
+            print("{} : {}".format(email, pwned))
             report[email] = pwned
 
         print(report)

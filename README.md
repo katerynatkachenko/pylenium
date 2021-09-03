@@ -7,6 +7,12 @@
 
 `git clone git@github.com:katerynatkachenko/pylenium.git`
 
+##### There are two options to run the tests: from docker container and without it
+
+###### To run outside the container, execute the following command from cmd of the cloned repository:
+
+`python3 main.py`
+
 #### 2. To get started with the project, please execute the following command from the project root directory: 
 
 `docker run -d --privileged --rm --name selenium-debug -p 4444:4444 -v $(pwd):/app:rw -w /app -p 5900:5900 --shm-size=2g katerynatkachenko/selenium-perseus:latest`
