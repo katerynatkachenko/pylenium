@@ -6,6 +6,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.common.by import By
 
+
 class TestStringMethods(unittest.TestCase):
 
     def setUp(self):
@@ -15,7 +16,7 @@ class TestStringMethods(unittest.TestCase):
         self.driver = webdriver.Chrome(options=option)
         self.wait = WebDriverWait(self.driver, 10)
         self.driver.get("https://haveibeenpwned.com/")
-        self.search_bar = self.driver.find_element_by_id("Account")
+        self.search_bar = self.driver.find_element(By.ID, "Account")
 
         self.emails = [
             "test@something.com",
@@ -32,10 +33,11 @@ class TestStringMethods(unittest.TestCase):
     def test_first_scenario(self):
         # First scenario:
         self.search_bar.send_keys("test@something.com")
-        self.driver.find_element_by_id("searchPwnage").click()
+        self.driver.find_element(By.ID, "searchPwnage").click()
 
-        self.wait.until(ec.visibility_of_element_located((By.XPATH, "//*[@id=\"pwnedWebsiteBanner\"]/div/div/div[1]/h2")))
-        result = self.driver.find_element_by_xpath("//*[@id=\"pwnedWebsiteBanner\"]/div/div/div[1]/h2").text
+        self.wait.until(
+            ec.visibility_of_element_located((By.XPATH, "//*[@id=\"pwnedWebsiteBanner\"]/div/div/div[1]/h2")))
+        result = self.driver.find_element(By.XPATH, "//*[@id=\"pwnedWebsiteBanner\"]/div/div/div[1]/h2").text
 
         self.assertEqual(result, 'Oh no — pwned!')
 
@@ -43,13 +45,12 @@ class TestStringMethods(unittest.TestCase):
         # Second scenario:
         self.search_bar.clear()
         self.search_bar.send_keys("qwerty@somehting.com")
-        self.driver.find_element_by_id("searchPwnage").click()
+        self.driver.find_element(By.ID, "searchPwnage").click()
 
         self.wait.until(ec.visibility_of_element_located((By.XPATH, "//*[@id=\"noPwnage\"]/div/div/div[1]/h2")))
-        result = self.driver.find_element_by_xpath("//*[@id=\"noPwnage\"]/div/div/div[1]/h2").text
+        result = self.driver.find_element(By.XPATH, "//*[@id=\"noPwnage\"]/div/div/div[1]/h2").text
 
         self.assertEqual(result, 'Good news — no pwnage found!')
-
 
     def test_third_scenario(self):
 
@@ -60,14 +61,14 @@ class TestStringMethods(unittest.TestCase):
 
             self.search_bar.clear()
             self.search_bar.send_keys(email)
-            self.driver.find_element_by_id("searchPwnage").click()
+            self.driver.find_element(By.ID, "searchPwnage").click()
 
             time.sleep(2)
 
-            pwned = self.driver.find_element_by_xpath("//*[@id=\"pwnedWebsiteBanner\"]/div/div/div[1]/h2").text
+            pwned = self.driver.find_element(By.XPATH, "//*[@id=\"pwnedWebsiteBanner\"]/div/div/div[1]/h2").text
 
             if pwned == '':
-                no_pwnage = self.driver.find_element_by_xpath("//*[@id=\"noPwnage\"]/div/div/div[1]/h2").text
+                no_pwnage = self.driver.find_element(By.XPATH, "//*[@id=\"noPwnage\"]/div/div/div[1]/h2").text
 
                 report[email] = no_pwnage
                 continue
@@ -78,3 +79,6 @@ class TestStringMethods(unittest.TestCase):
         with open('data.yml', 'w') as outfile:
             yaml.dump(report, outfile, default_flow_style=False)
 
+
+if __name__ == '__main__':
+    unittest.main()
