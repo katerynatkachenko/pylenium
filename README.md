@@ -24,7 +24,7 @@
 
 #### 2. Connect VNC viewer of your preference on `localhost:5900` and the password: `secret`
 
-To install VNC viewer on Linux Ubuntu, use `sudo apt install remina`
+To install VNC viewer on Linux Ubuntu, use `sudo apt install remmina`
 
 #### 3. Execute the test suite by running
 
