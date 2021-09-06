@@ -1,4 +1,6 @@
 ### Perseus QA Coding Challenge: Have I been pwned?
+
+---
 ### Quick start
 
 #### Please clone the repository from GitHub:
@@ -10,13 +12,10 @@
 - with docker 
 - with host system
 
-### With host system \[Linux Ubuntu Environment\]
-
-1. From the root project directory, first run `sudo chmod +x ./setup.sh` to grant executable permission to `setup.sh` file
-2. Then execute `setup.sh` file by running the following command: `./setup.sh`
-3. To run the tests, use the following command `python3 main.py`
-
+---
 ### With docker
+
+As a side note: the `data.yml` file should not exist if you would like to run the tests with docker. [remove it prior from the folder - `rm -rf data.yml`]
 
 #### 1. Execute the following command from the project root directory:
 
@@ -30,6 +29,15 @@ To install VNC viewer on Linux Ubuntu, use `sudo apt install remmina`
 
 `docker exec selenium-debug python3 main.py`
 
+---
+
+### With host system \[Linux Ubuntu Environment\]
+
+1. From the root project directory, first run `sudo chmod +x ./setup.sh` to grant executable permission to `setup.sh` file
+2. Then execute `setup.sh` file by running the following command: `./setup.sh`
+3. To run the tests, use the following command `python3 main.py`
+
+---
 ### Test Suite Description
 
 1. Test Suite 'TestStringMethods' which is located in `main.py` file consists of 3 case scenarios + `setUp` and `tearDown` tests
