@@ -15,7 +15,7 @@
 ---
 ### With docker
 
-As a side note: the `data.yml` file should not exist if you would like to run the tests with docker. [remove it prior from the folder - `rm -rf data.yml`]
+	It is required to have the latest version of docker and Google Chrome installed
 
 #### 1. Execute the following command from the project root directory:
 
@@ -28,6 +28,8 @@ To install VNC viewer on Linux Ubuntu, use `sudo apt install remmina`
 #### 3. Execute the test suite by running
 
 `docker exec selenium-debug python3 main.py`
+
+As a side note: the `data.yml` file should not exist if you would like to run the tests with docker. [remove it prior from the folder - `sudo rm data.yml`]
 
 ---
 
