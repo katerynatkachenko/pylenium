@@ -49,3 +49,10 @@ To install VNC viewer on Linux Ubuntu, use `sudo apt install remmina`
    If yes - the test passed successfully.
 5. The same goes with the second scenario test, the only difference, that test cleans the search bar first and inserts different email: `qwerty@somehting.com` and expects another assert result value: `Good news — no pwnage found!`
 6. In the third test scenario we loop though the list of emails, that were declared in setUp test, and create an object of the results which is saved into `data.yaml` file.
+
+---
+### Known limitations 
+
+Generation of `data.yml` file from docker to host system fails due to access permission.
+
+Working on finding the solution.
