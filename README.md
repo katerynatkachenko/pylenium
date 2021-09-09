@@ -1,4 +1,4 @@
-### Perseus QA Coding Challenge: Have I been pwned?
+### QA Coding Challenge: Have I been pwned?
 
 ---
 ### Quick start
@@ -57,4 +57,14 @@ As a side note: the `data.yml` file should not exist if you would like to run th
 
 Generation of `data.yml` file from docker to host system fails due to access permission.
 
-Working on finding the solution.
+### Possible solution
+
+`docker exec -it selenium-debug bash`
+
+Inside the container:
+
+`cd ..`
+
+`sudo chown seluser app/`
+
+`exit`
